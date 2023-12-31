@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="LoginTestcase">
+	<test name="SmokeRun">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.LoginTest">
+              <methods> 
+				  <include name="verify_Login"></include>
+				      </methods>
+			</class>
+		</classes>
+	</test>
+</suite>
