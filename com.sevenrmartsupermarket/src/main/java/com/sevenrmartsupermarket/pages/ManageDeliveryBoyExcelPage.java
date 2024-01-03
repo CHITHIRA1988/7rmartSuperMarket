@@ -49,6 +49,13 @@ public class ManageDeliveryBoyExcelPage {
 	//List<WebElement> deleteButtonElement;
 	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']//tr//td[1]")
 	List<WebElement> namesElement;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	WebElement alertElement;
+	@FindBy(xpath="//h4[text()='Search List Delivery Boy']")
+	WebElement searchDeliveryBoy;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	WebElement alertDeleteElement;
+	
 	public ManageDeliveryBoyExcelPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -141,6 +148,20 @@ public class ManageDeliveryBoyExcelPage {
         driver.switchTo().alert().accept();
     
        
+	}
+	public boolean alertMessage(String message)
+	{
+		generalutility=new GeneralUtility(driver);
+		return generalutility.is_WordPresent(alertElement,message);	
+	}
+	public String getTextOfSearchDeliveryBoy()
+	{
+		return searchDeliveryBoy.getText();	
+	}
+	public boolean alertDeleteMessage(String message)
+	{
+		generalutility=new GeneralUtility(driver);
+		return generalutility.is_WordPresent(alertDeleteElement,message);	
 	}
 		
 		 

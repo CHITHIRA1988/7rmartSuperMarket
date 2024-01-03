@@ -1,5 +1,6 @@
 package com.sevenrmartsupermarket.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
@@ -16,6 +17,8 @@ public class AddOfferTest extends Base{
 		addofferpage=new AddOfferPage(driver);
 		loginpage.login();
 		addofferpage.manageOfferCode();
-		addofferpage.createNewManageOfferCode("TestOfferC001","25%","250","abcd");
+		addofferpage.createNewManageOfferCode("TestOfferC002","25%","250","abcd");
+		boolean actualResult=addofferpage.alertsuccessMessage("Offer Created Successfully");
+		Assert.assertTrue(actualResult);
 	}
 }

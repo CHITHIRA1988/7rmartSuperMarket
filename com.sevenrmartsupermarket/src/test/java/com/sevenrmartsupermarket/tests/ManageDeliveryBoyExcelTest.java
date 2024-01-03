@@ -1,5 +1,6 @@
 package com.sevenrmartsupermarket.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
@@ -27,6 +28,8 @@ public class ManageDeliveryBoyExcelTest extends Base{
 		 String userName=excelread.getCellData(1,4);
 		 String password=excelread.getCellData(1,5);
 		 managedeliveryboyexcelpage.createDeliveryBoy(name, email, phNo, address, userName, password);
+		 boolean actualResult=managedeliveryboyexcelpage.alertMessage("Delivery Boy Details Created Successfully");
+			Assert.assertTrue(actualResult);
 	 }
 	@Test
 	public void verify_EnterSearchName()
@@ -39,6 +42,9 @@ public class ManageDeliveryBoyExcelTest extends Base{
 		 excelread.setExcelFile("ManageDeliveryBoy","DeliveryBoyInformations");
 		 String name=excelread.getCellData(1,0);
 		 managedeliveryboyexcelpage.enterSearchName(name);
+		 String expectedText="Search List Delivery Boy";
+			String actualText=managedeliveryboyexcelpage.getTextOfSearchDeliveryBoy();
+			Assert.assertEquals(actualText, expectedText);
 		 
 	}
 	@Test
@@ -51,6 +57,8 @@ public class ManageDeliveryBoyExcelTest extends Base{
 		 excelread.setExcelFile("ManageDeliveryBoy","DeliveryBoyInformations");
 		 String name=excelread.getCellData(1,0);
 		 managedeliveryboyexcelpage.clickNameDelete(name);
+		 boolean actualResult=managedeliveryboyexcelpage.alertDeleteMessage("Delivery Boy Informations Deleted Successfully");
+			Assert.assertTrue(actualResult);
 	}
 
 }

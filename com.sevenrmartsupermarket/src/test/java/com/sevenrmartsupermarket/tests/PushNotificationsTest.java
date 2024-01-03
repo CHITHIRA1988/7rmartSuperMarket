@@ -15,14 +15,14 @@ public class PushNotificationsTest extends Base {
 	ExcelRead excelread=new ExcelRead();
 	PushNotificationsPage pushnotificationspage;
 	 LoginPage loginpage;
-	@Test
+	@Test(groups = "smoke")
 	public void verify_ExcelData()
 	{
 	excelread.setExcelFile("PushNotification","Notification");
 	String data=excelread.getCellData(0,0);
 	System.out.println(data);
 	}
-	@Test
+	@Test(groups = {"smoke","regression"})
 	public void verify_PushNotificationAlertMessage() throws InterruptedException
 	{
 	   loginpage=new LoginPage(driver);

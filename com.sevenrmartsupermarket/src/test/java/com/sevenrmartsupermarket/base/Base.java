@@ -11,7 +11,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
+import com.beust.jcommander.Parameter;
 import com.sevenrmartsupermarket.constants.Constants;
 import com.sevenrmartsupermarket.utilities.ScreenShot;
 import com.sevenrmartsupermarket.utilities.WaitUtility;
@@ -50,10 +52,18 @@ public class Base {
 		driver.get(url);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtility.IMPLICIT_WAIT));
+	}
+
+	@Parameters("browser")
+	@BeforeMethod(enabled = false,alwaysRun = true)
+	public void launch_Browser(String browser) {
+
+		String url = properties.getProperty("url");
+		initialize(browser, url);
 
 	}
 
-	@BeforeMethod
+	@BeforeMethod(enabled = true,alwaysRun = true)
 	public void launch_Browser() {
 		String browser = properties.getProperty("browser");
 		String url = properties.getProperty("url");
@@ -61,7 +71,7 @@ public class Base {
 
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void terminateSession(ITestResult itestresult) {
 		if (itestresult.getStatus() == ITestResult.FAILURE) {
 			screenshot.takeScreenShot(driver, itestresult.getName());

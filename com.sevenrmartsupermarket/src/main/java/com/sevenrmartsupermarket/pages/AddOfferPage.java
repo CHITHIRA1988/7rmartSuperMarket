@@ -9,10 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.sevenrmartsupermarket.constants.Constants;
 import com.sevenrmartsupermarket.utilities.DataProviderUtility;
+import com.sevenrmartsupermarket.utilities.GeneralUtility;
 import com.sevenrmartsupermarket.utilities.PageUtility;
 
 public class AddOfferPage {
 	WebDriver driver;
+	GeneralUtility generalutility;
+	
 	PageUtility pageutility;
 	DataProviderUtility dataproviderutility=new DataProviderUtility();
 	@FindBy(xpath="(//a[@class='small-box-footer'])[6]")
@@ -33,7 +36,8 @@ public class AddOfferPage {
 	WebElement chooseFileElement;
 	@FindBy(xpath="//button[text()='Save']")
 	WebElement saveElement;
-	
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+    WebElement alertsuccessElement;	
 	public AddOfferPage(WebDriver driver)
 	{
 		this.driver = driver;
@@ -67,17 +71,11 @@ public class AddOfferPage {
     {
     	descriptionElement.sendKeys(description);
     }
-  // public void click_chooseFile()
-   //{
-    	//pageutility=new PageUtility(driver);
-    	//pageutility.scrollAndClick(chooseFileElement); 
-    	//chooseFileElement.click();	
-    //}
-    public void click_saveButton()
+      public void click_saveButton()
     {
     	pageutility=new PageUtility(driver);
     	pageutility.scrollAndClick(saveElement);
-    	//saveElement.click();	
+    		
     }
     public void image_Upload()
     {
@@ -99,6 +97,7 @@ public class AddOfferPage {
     }
     public void dataProviderAddOffer(String offerCode,String percentage,String amount,String description)
     {
+    	//dataproviderutility.addOfferCode();
     	enter_OfferCode(offerCode);
     	enter_percentage(percentage);
     	enter_Amount(amount);
@@ -106,5 +105,10 @@ public class AddOfferPage {
     	
     	
     }
+    public boolean alertsuccessMessage(String message)
+	{
+		generalutility=new GeneralUtility(driver);
+		return generalutility.is_WordPresent(alertsuccessElement,message);	
+	}
     
 }

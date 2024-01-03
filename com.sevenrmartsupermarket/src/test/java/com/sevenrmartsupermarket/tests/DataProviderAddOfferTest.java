@@ -1,5 +1,6 @@
 package com.sevenrmartsupermarket.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
@@ -21,7 +22,8 @@ public class DataProviderAddOfferTest extends Base{
 		addofferpage.dataProviderAddOffer(offerCode, percentage, amount, description);
 		addofferpage.image_Upload();
 		addofferpage.click_saveButton();
-		
+		boolean actualResult=addofferpage.alertsuccessMessage("Offer Created Successfully");
+		Assert.assertTrue(actualResult);
 	}
 }
 

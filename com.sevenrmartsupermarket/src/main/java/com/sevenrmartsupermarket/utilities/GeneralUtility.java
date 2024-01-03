@@ -59,4 +59,5 @@ public List<String> getTextOfElements(List<WebElement> elements)
 	return data;
 }
 
+
 }

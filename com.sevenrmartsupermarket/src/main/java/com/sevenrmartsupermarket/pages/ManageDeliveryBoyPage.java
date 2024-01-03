@@ -50,6 +50,16 @@ public class ManageDeliveryBoyPage {
 	//List<WebElement> deleteButtonElement;
 	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']//tr//td[1]")
 	List<WebElement> namesElement;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	WebElement alertElement;
+	@FindBy(xpath="//h4[text()='Search List Delivery Boy']")
+	WebElement searchDeliveryBoy;
+	@FindBy(xpath="//h1[text()='List Delivery Boy']")
+	WebElement listDeliveryBoy;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	WebElement alertDeleteElement;
+	@FindBy(xpath = "//h1[@class='m-0 text-dark']")
+	WebElement editDeliveryBoyElement;
 	public ManageDeliveryBoyPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -118,6 +128,8 @@ public class ManageDeliveryBoyPage {
 	{
 		nameSearchElement.sendKeys(searchName);
 		searchButtonElement.click();
+		
+		
 	}
 	public void resetSearch()
 	{
@@ -172,6 +184,28 @@ public class ManageDeliveryBoyPage {
 			WebElement editButton=driver.findElement(By.xpath("//table[@class='table table-bordered table-hover table-sm']//tr["+index+"]//td[8]//a[1]"));
 	pageutility.scrollAndClick(editButton);	
 	
+	}
+	public boolean alertMessage(String message)
+	{
+		generalutility=new GeneralUtility(driver);
+		return generalutility.is_WordPresent(alertElement,message);	
+	}
+	public String getTextOfSearchDeliveryBoy()
+	{
+		return searchDeliveryBoy.getText();	
+	}
+	public String listDeliveryBoygetText()
+	{
+		return listDeliveryBoy.getText();
+	}
+	public boolean alertDeleteMessage(String message)
+	{
+		generalutility=new GeneralUtility(driver);
+		return generalutility.is_WordPresent(alertDeleteElement,message);	
+	}
+	public String editDeliveryBoygetText()
+	{
+	return editDeliveryBoyElement.getText();
 	}
 	
 }
