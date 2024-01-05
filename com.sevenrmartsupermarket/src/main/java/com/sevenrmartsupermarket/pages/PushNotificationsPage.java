@@ -20,6 +20,9 @@ public class PushNotificationsPage {
 	WebElement sendButton;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
 	WebElement alertElement;
+	@FindBy(xpath="//b[text()='7rmart supermarket']")
+	WebElement superMarket;
+	
 	public PushNotificationsPage(WebDriver driver) {
 		this.driver = driver;
 
@@ -54,5 +57,9 @@ public class PushNotificationsPage {
 	{
 		generalutility=new GeneralUtility(driver);
 		return generalutility.is_WordPresent(alertElement,message);	
+	}
+	public String superMarketGetext()
+	{
+		return superMarket.getText();
 	}
 }

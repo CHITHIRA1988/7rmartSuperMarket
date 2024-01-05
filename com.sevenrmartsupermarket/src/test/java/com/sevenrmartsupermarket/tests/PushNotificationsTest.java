@@ -18,9 +18,13 @@ public class PushNotificationsTest extends Base {
 	@Test(groups = "smoke")
 	public void verify_ExcelData()
 	{
+		pushnotificationspage=new PushNotificationsPage(driver);
 	excelread.setExcelFile("PushNotification","Notification");
 	String data=excelread.getCellData(0,0);
 	System.out.println(data);
+	String expectedText="7rmart supermarket";
+	String actualText=pushnotificationspage.superMarketGetext();	
+    Assert.assertEquals(actualText,expectedText);
 	}
 	@Test(groups = {"smoke","regression"})
 	public void verify_PushNotificationAlertMessage() throws InterruptedException

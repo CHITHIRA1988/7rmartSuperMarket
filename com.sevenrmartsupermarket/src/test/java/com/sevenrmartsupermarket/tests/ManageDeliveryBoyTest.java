@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
+import com.sevenrmartsupermarket.base.DataProviders;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.pages.ManageDeliveryBoyPage;
 
@@ -13,6 +14,7 @@ public class ManageDeliveryBoyTest extends Base {
 	@Test
 	public void createManageDeliveryBoy()
 	{
+		
 		loginpage=new LoginPage(driver);
 		loginpage.login();
 		managedeliveryboypage=new ManageDeliveryBoyPage(driver);
@@ -26,6 +28,7 @@ public class ManageDeliveryBoyTest extends Base {
 	}
 	@Test
 	public void verify_SearchDeliveryBoy() {
+		
 		loginpage=new LoginPage(driver);
 		loginpage.login();
 		managedeliveryboypage=new ManageDeliveryBoyPage(driver);
@@ -39,6 +42,7 @@ public class ManageDeliveryBoyTest extends Base {
 
 @Test
 public void verify_SearchReset() {
+	
 	loginpage=new LoginPage(driver);
 	loginpage.login();
 	managedeliveryboypage=new ManageDeliveryBoyPage(driver);
@@ -78,4 +82,18 @@ public void verify_editUser()
 	String expectedText=managedeliveryboypage.editDeliveryBoygetText();
 	Assert.assertEquals(actualText, expectedText);
 }
+@Test
+public void verify_CallFakerMethod()
+{
+	loginpage=new LoginPage(driver);
+	loginpage.login();
+	managedeliveryboypage=new ManageDeliveryBoyPage(driver);
+	managedeliveryboypage.clickOnManageDeliveryBoy();
+	managedeliveryboypage.clickNewButton();
+	managedeliveryboypage.callFakerMethod();
+	boolean actualResult=managedeliveryboypage.alertMessage("Delivery Boy Details Created Successfully");
+	Assert.assertTrue(actualResult);
+  	
+}
+
 }

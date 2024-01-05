@@ -9,7 +9,9 @@ import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.remote.internal.WebElementToJsonConverter;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
 
+import com.github.javafaker.Faker;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 import com.sevenrmartsupermarket.utilities.PageUtility;
 
@@ -136,10 +138,7 @@ public class ManageDeliveryBoyPage {
 		resetSearchElement.click();
 	}
 
-	/*
-	 * public void clickDelete() { deleteButtonElement.get(0).click();
-	 * driver.switchTo().alert().accept(); }
-	 */
+	
 	public void clickNameDelete(String name)
 	{
 		pageutility=new PageUtility(driver);
@@ -207,5 +206,34 @@ public class ManageDeliveryBoyPage {
 	{
 	return editDeliveryBoyElement.getText();
 	}
+	
+	
+	public void callFakerMethod() 
+	{
+		pageutility=new PageUtility(driver);
+		Faker faker = new Faker();
+		String name = faker.name().fullName();
+		String emailAddress = faker.internet().emailAddress();
+		String no = faker.name().lastName();
+		String userName = faker.name().firstName();
+		String password = faker.name().lastName();
+         System.out.println(name);
+         System.out.println(emailAddress);
+         System.out.println(no);
+         System.out.println(userName);
+         System.out.println(password);
+		String address = faker.address().streetAddress();
+		System.out.println(address);
+		nameElement.sendKeys(name);
+		emailElement.sendKeys(emailAddress);
+		phnoneElement.sendKeys(no);
+		addressElement.sendKeys(address);
+		userNameElement.sendKeys(userName);
+		passwordElement.sendKeys(password);	
+		saveAll();
+		
+	}
+	
+	
 	
 }

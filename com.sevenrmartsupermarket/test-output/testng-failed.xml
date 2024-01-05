@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.sevenrmartsupermarket.tests.ManageDeliveryBoyExcelTest">
+      <class name="com.sevenrmartsupermarket.tests.LoginTest">
         <methods>
           <include name="terminateSession"/>
-          <include name="verify_ClickNameDelete"/>
           <include name="launch_Browser"/>
+          <include name="launch_Browser"/>
+          <include name="loginCredentialsExcelProvider" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.sevenrmartsupermarket.tests.ManageDeliveryBoyExcelTest -->
+      </class> <!-- com.sevenrmartsupermarket.tests.LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
