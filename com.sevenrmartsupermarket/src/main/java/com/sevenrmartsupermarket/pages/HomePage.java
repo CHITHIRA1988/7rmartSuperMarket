@@ -22,6 +22,7 @@ public class HomePage {
 	@FindBy(xpath="//b[text()='7rmart supermarket']")
 	WebElement superMarket;
 	
+	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 

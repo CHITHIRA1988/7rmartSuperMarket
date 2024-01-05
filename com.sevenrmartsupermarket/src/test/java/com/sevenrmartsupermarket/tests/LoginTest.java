@@ -42,13 +42,11 @@ public class LoginTest extends Base{
 		loginpage=new LoginPage(driver);
 		homepage=new HomePage(driver);
 		loginpage.login(userName,password);
+		System.out.println(userName);
+		System.out.println(password);
 		String actualProfileName=homepage.get_ProfileName();
-		Assert.assertEquals("actualProfileName","expectedProfileName");
-		
-		
-		
-		
-	}
+		Assert.assertEquals(actualProfileName,expectedProfileName);
+		}
 	
 	}
 	

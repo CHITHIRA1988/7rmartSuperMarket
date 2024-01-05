@@ -10,7 +10,7 @@ public class DataProviders {
 	@DataProvider(name="LoginData")
 	public Object[][] UserLogin()
 	{
-		return new Object [][] {{"gopi","gopi","Brent"},{"suresh","hema","qwe"},{"Herta2023","Durgan123","Vern"}};
+		return new Object [][] {{"Sheila2023","Runolfsson123","Sheila2023"},{"gopi","gopi","Gopi"},{"suresh","suresh","Suresh"}};
 	}
 
 	@DataProvider(name="LoginDataExcel")
