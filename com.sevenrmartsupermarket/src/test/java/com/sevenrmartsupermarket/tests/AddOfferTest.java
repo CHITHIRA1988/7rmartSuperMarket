@@ -10,7 +10,7 @@ import com.sevenrmartsupermarket.pages.LoginPage;
 public class AddOfferTest extends Base{
 	LoginPage loginpage;
 	AddOfferPage addofferpage;
-	@Test
+	@Test(groups="smoke")
 	public void verify_createNewManageOfferCode()
 	{
 		loginpage=new LoginPage(driver);
