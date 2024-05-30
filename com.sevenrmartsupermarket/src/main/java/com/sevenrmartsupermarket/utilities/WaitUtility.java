@@ -23,5 +23,17 @@ public class WaitUtility {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Xpath)));
 	}
-
+	public void waitForElementToBeInvisible(WebDriver driver, WebElement element) {
+	      wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
+	      wait.until(ExpectedConditions.invisibilityOf(element));
+	  }
+	  public void waitForTextToBePresentInElement(WebDriver driver, WebElement element, String text) {
+	      wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
+	      wait.until(ExpectedConditions.textToBePresentInElement(element, text));
+	  }
+	  public void waitForAttributeValue(WebDriver driver, WebElement element, String attribute, String value) {
+	      wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
+	      wait.until(ExpectedConditions.attributeToBe(element, attribute, value));
+	  }
+	  
 }
